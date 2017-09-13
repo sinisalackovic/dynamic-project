@@ -4,6 +4,8 @@ namespace App\Service\Posts;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Model\Domain\Posts\PostRepository;
+use Model\Formatter\Posts\IndexFormatter;
 
 class Index
 {
@@ -16,12 +18,18 @@ class Index
 
     public function run(Request $request, Response $response)
     {
+        $postsCollection = (new PostRepository())->findAll();
+
+        $posts = [];
+        foreach ($postsCollection as $post){
+            $posts[] = IndexFormatter::format($post);
+        }
+        
         return $this->view->render(
-            'index.twig',
+            'posts/index.twig',
             [
                 'response' => [
-                    'data1' => 1,
-                    'data2' => 2,
+                    'posts' => $posts,
                 ]
             ]
         );

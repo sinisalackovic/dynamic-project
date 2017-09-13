@@ -60,3 +60,5 @@ $container['Posts\PutService'] = function($container)
 {
     return new \App\Service\Posts\Put();
 };
+
+

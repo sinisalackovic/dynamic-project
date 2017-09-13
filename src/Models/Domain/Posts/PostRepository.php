@@ -3,11 +3,12 @@
 namespace Model\Domain\Posts;
 
 use G4\DataMapper\Builder;
+use Lib\Collection;
+use G4\DataMapper\Common\Identity;
 use G4\DataMapper\Common\MapperInterface;
 use G4\DataMapper\Engine\MySQL\MySQLAdapter;
 use G4\DataMapper\Engine\MySQL\MySQLTableName;
 use G4\DataMapper\Engine\MySQL\MySQLClientFactory;
-use G4\DataMapper\Common\Identity;
 
 class PostRepository
 {
@@ -34,6 +35,19 @@ class PostRepository
             return PostEntityFactory::reconstitute($response->getOne());
 
         } catch(\Exception $e){
+
+        }
+    }
+
+    public function findAll()
+    {
+        try{
+            $response = $this->makeMapper()->query(
+                "SELECT * FROM " . self::TABLE_NAME
+            );
+
+            return new Collection($response->getAll(), new PostEntityFactory());
+        } catch (\Exception $e){
 
         }
     }

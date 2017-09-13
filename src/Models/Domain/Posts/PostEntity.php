@@ -2,8 +2,9 @@
 
 namespace Model\Domain\Posts;
 
-class PostEntity 
+class PostEntity
 {
+	private $id;
 	private $title;
 	private $body;
 	private $author;
@@ -12,9 +13,14 @@ class PostEntity
 
 	public function __construct($title, $body, $author)
 	{
-		$this->title  = $title;
-		$this->body   = $body;
+		$this->title = $title;
+		$this->body = $body;
 		$this->author = $author;
+	}
+
+	public function getId()
+	{
+		return $this->id;
 	}
 
 	public function getTitle()
@@ -40,6 +46,12 @@ class PostEntity
 	public function getTsUpdated()
 	{
 		return $this->ts_updated;
+	}
+
+	public function setId($id)
+	{
+		$this->id = $id;
+		return $this;
 	}
 
 	public function setTsCreated($tsCreated)

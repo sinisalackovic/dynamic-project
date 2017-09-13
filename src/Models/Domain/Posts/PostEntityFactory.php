@@ -7,17 +7,26 @@ namespace Model\Domain\Posts;
 class PostEntityFactory
 {
 	// ovde dolaze sirovi podaci, array pretezno
-	public static function create(array $data)
+	private $data;
+
+	public function create(array $data)
 	{
 		return new PostEntity($data['title'], $data['body'], $data['author']);
 	}
 	
-	public static function reconstitute(array $data)
+	public function reconstitute()
 	{
-		$entity = new PostEntity($data['title'], $data['body'], $data['author']);
-		$entity->setTsCreated($data['ts_created']);
-		$entity->setTsUpdated($data['ts_modified']);
+		$entity = new PostEntity($this->data['title'], $this->data['body'], $this->data['author']);
+		$entity->setId($this->data['id']);
+		$entity->setTsCreated($this->data['ts_created']);
+		$entity->setTsUpdated($this->data['ts_modified']);
 
 		return $entity;
+	}
+
+	public function set(array $data)
+	{
+		$this->data = $data;
+		return $this;
 	}
 }
