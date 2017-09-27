@@ -14,7 +14,7 @@ class Post
     public function run(Request $request)
     {
         $data   = $request->getQueryParams();
-        $entity = PostEntityFactory::create($data);
+        $entity = (new PostEntityFactory())->create($data);
 
         (new PostRepository())->save($entity);
         

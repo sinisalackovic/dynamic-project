@@ -2,8 +2,8 @@
 
 namespace Model\Domain\Posts;
 
-use G4\DataMapper\Builder;
 use Lib\Collection;
+use G4\DataMapper\Builder;
 use G4\DataMapper\Common\Identity;
 use G4\DataMapper\Common\MapperInterface;
 use G4\DataMapper\Engine\MySQL\MySQLAdapter;
@@ -30,9 +30,9 @@ class PostRepository
             $identity->field("id");
             $identity->equal($id);
 
-            $response = $this->makeMapper()->find($identity);
+            $response = $this->makeMapper()->find($identity)->getOne();
 
-            return PostEntityFactory::reconstitute($response->getOne());
+            return (new PostEntityFactory())->reconstitute($response);
 
         } catch(\Exception $e){
 

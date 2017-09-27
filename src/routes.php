@@ -6,5 +6,5 @@ $app->get('/{id}', \Posts\GetService::class . ':run');
 $app->delete('/{id}', \Posts\DeleteService::class . ':run');
 $app->put('/', \Posts\PutService::class . ':run');
 
-
+$app->post('/comments', \Comments\PostService::class . ':run');
     

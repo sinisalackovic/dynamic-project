@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="description" content="">
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
-
 </head>
 <body>
 <div class="preloader">
@@ -25,38 +23,16 @@
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
-
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="index.twig" class="navbar-brand">Neuron</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="index.twig">Home</a></li>
-            </ul>
+            <a href="/" class="navbar-brand">Neuron</a>
         </div>
     </div>
 </div>
-
-<!-- <section id="home" class="main-home parallax-section">
-    <div class="overlay"></div>
-    <div id="particles-js"></div>
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12 col-sm-12">
-                <h1>Hello! This is Neuron.</h1>
-                <h4>Responsive Blog HTML CSS Website Template</h4>
-                <a href="#blog" class="smoothScroll btn btn-default">Discover More</a>
-            </div>
-
-        </div>
-    </div>
-</section> -->
 
 <section id="blog">
     <div class="container">
@@ -67,10 +43,10 @@
                 <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="blog-post-thumb">
                         <div class="blog-post-title">
-                            <h3><a href="single-post.html">{{ post.title }}</a></h3>
+                            <h3><a href="/{{ post.id }}">{{ post.title }}</a></h3>
                         </div>
                         <div class="blog-post-format">
-                            <span><a href="#"><img src="images/author-image1.jpg" class="img-responsive img-circle"> {{ post.author }}</a></span>
+                            <span><img src="images/author-image1.jpg" class="img-responsive img-circle"> {{ post.author }}</span>
                             <span><i class="fa fa-date"></i> July 22, 2017</span>
                             <span><a href="#"><i class="fa fa-comment-o"></i> 35 Comments</a></span>
                         </div>

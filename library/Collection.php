@@ -120,8 +120,7 @@ class Collection implements \Iterator, \Countable
 
     private function addCurrentRawDataToObjects()
     {
-        $this->factory->set($this->currentRawData());
-        $this->objects[$this->pointer] = $this->factory->reconstitute();
+        $this->objects[$this->pointer] = $this->factory->reconstitute($this->currentRawData());
     }
 
     /**

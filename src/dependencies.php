@@ -21,7 +21,7 @@ $container['logger'] = function ($container) {
 // Register component on container
 $container['view'] = function ($container) {
 
-    $templatesPath = realpath(__DIR__.'/templates' . $container['request']->getUri()->getPath());
+    $templatesPath = realpath(__DIR__.'/templates');
     $loader = new \Twig_Loader_Filesystem($templatesPath);
 
     $templateEngine = new \Twig_Environment($loader, [
@@ -48,7 +48,7 @@ $container['Posts\IndexService'] = function($container)
 
 $container['Posts\GetService'] = function($container)
 {
-    return new \App\Service\Posts\Get();
+    return new \App\Service\Posts\Get($container['view']);
 };
 
 $container['Posts\DeleteService'] = function($container)
@@ -59,6 +59,11 @@ $container['Posts\DeleteService'] = function($container)
 $container['Posts\PutService'] = function($container)
 {
     return new \App\Service\Posts\Put();
+};
+
+$container['Comments\PostService'] = function($container)
+{
+    return new \App\Service\Comments\Post();
 };
 
 
