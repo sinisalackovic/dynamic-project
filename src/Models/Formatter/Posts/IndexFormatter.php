@@ -13,8 +13,8 @@ class IndexFormatter
             "title"       =>   $postEntity->getTitle(),
             "body"        =>   $postEntity->getBody(),
             "author"      =>   $postEntity->getAuthor(),
-            "ts_created"  =>   $postEntity->getTsCreated(),
-            "ts_updated"  =>   $postEntity->getTsUpdated()
+            "ts_created"  =>   date('m/d/Y', $postEntity->getTsCreated()),
+            "ts_updated"  =>   date('m/d/Y', $postEntity->getTsUpdated())
         ];
     }
 }

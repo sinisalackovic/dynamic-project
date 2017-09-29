@@ -58,8 +58,7 @@
 
                     <div class="blog-post-format">
                         <span><img src="images/author-image1.jpg" class="img-responsive img-circle"> {{ response.post.author }}</span>
-                        <span><i class="fa fa-date"></i> July 22, 2017</span>
-                        <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
+                        <span><i class="fa fa-date"></i> {{ response.post.ts_created }}</span>
                     </div>
 
                     <div class="blog-post-des">
@@ -73,11 +72,10 @@
 
                             <div class="media">
                                 <div class="media-object pull-left">
-                                    <img src="images/author-image1.jpg" class="img-responsive img-circle" alt="Blog Image 11">
+                                    <img src="images/comment-image1.jpg" class="img-responsive img-circle" alt="Blog Image 11">
                                 </div>
                                 <div class="media-body">
                                     <h3 class="media-heading">{{ comment.name }}</h3>
-                                    <span>3 days ago</span>
                                     <p>{{ comment.message }}</p>
                                 </div>
                             </div>
