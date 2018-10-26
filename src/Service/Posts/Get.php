@@ -18,6 +18,9 @@ class Get
         $this->view = $view;
     }
 
+    /**
+        Added some comments = new
+    **/
     public function run(Request $request, Response $response, $args)
     {
         $id = $args['id'];
