@@ -19,7 +19,7 @@ class Get
     }
 
     /**
-        Added some comments
+        Added some comments = new
     **/
     public function run(Request $request, Response $response, $args)
     {
